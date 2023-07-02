@@ -7,7 +7,15 @@ The purpose of this document is to have a place to keep information about packag
 This needs to be here because it is the initial function of every package.
 
 ```
-❯ sudo pacman -S certbot
+sudo pacman -S certbot
+```
+
+# Remove Packages
+
+Need to delete a package? Yes.
+
+```
+sudo pacman -R js78
 ```
 
 # Package Dependencies
@@ -19,7 +27,11 @@ It can be important to know what dependencies there are with packages. Especiall
 View a package's dependencies.
 
 ```
-❯ pactree js78
+pactree js78
+```
+This gives a tree of all the dependencies that requested package has (ex. js78):
+
+```
 js78
 ├─gcc-libs
 │ └─glibc>=2.27
@@ -50,6 +62,11 @@ To see this get the dependencies in reverse.
 This can tell you if a package is safe to remove.
 
 ```
-❯ pactree -r js78
+pactree -r js78
+```
+
+This will print a tree of packages that depend on the requested package. If there are no dependencies on the `pactree` will just print the name of the package (ex. js78):
+
+```
 js78
 ```
